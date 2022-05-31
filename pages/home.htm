@@ -1,6 +1,6 @@
 url = "/"
 layout = "default"
-title = "REST-COAST"
+title = "NICHES"
 is_hidden = 0
 meta_description = "homepage desc"
 seo_keywords = "keywords"
@@ -16,7 +16,7 @@ thumb_width = 506
 thumb_height = 311
 
 [Timeline]
-limit = 3
+limit = 8
 upcoming = 0
 marked_for_display = 1
 templates = "template3"
@@ -29,21 +29,7 @@ templates = "template1"
 description_limit = 0
 
 [jumbotron mission]
-jumbotron = "mssion"
-title = 1
-background = "#ffffff"
-templates = "template1"
-description_limit = 0
-
-[jumbotron goals]
-jumbotron = "goal"
-title = 1
-background = "#ffffff"
-templates = "template1"
-description_limit = 0
-
-[jumbotron numbers]
-jumbotron = "rest-coast-numbers"
+jumbotron = "mission"
 title = 1
 background = "#ffffff"
 templates = "template1"
@@ -53,36 +39,28 @@ description_limit = 0
 <div class="container-fluid">
 	<div class="container">
 		<div class="row between-md around-xs">
-			<div class="col-sm-4 col-xs-12 vision">
+			<div class="col-sm-6 col-xs-12 vision">
 				{% component 'vision' %}
 			</div>
-			<div class="col-sm-4 col-xs-12 mission">
+			<div class="col-sm-6 col-xs-12 mission">
 				{% component 'mission' %}
-			</div>
-			<div class="col-sm-4 col-xs-12 goals">
-				{% component 'goals' %}
 			</div>
 		</div>
 	</div>
 </div>
 
-<!-- numbers -->
-<div class="numbers_container">
-	{% component 'numbers' %}
+<div class="container-fluid">
+	<div class="container">
+		<h1 class="base_heading">EVENTS</h1>
+		{% component 'Timeline' %}
+	</div>
 </div>
-
 
 <!-- latest from news -->
 <div class="container-fluid bg-secondary">
 	{% component 'article_highlights' %}
 </div>
-<div class="container-fluid">
-	<div class="container">
-		<h1 class="base_heading">EVENTS</h1>
-		{% component 'Timeline' %}
-		
-	</div>
-</div>
+
 <div class="container-fluid bg-secondary">
 	<div class="container">
 	<!-- subscribes -->
@@ -90,12 +68,12 @@ description_limit = 0
 		<div class="col-lg-6 col-sm-5 col-xs-12">
 			<h1 class="base_heading">Latest updates</h1>
 			<div class="twitter-widget">
-			    <a class="twitter-timeline" href="https://twitter.com/RESTCOAST_H2020?ref_src=twsrc%5Etfw">Tweets by RESTCOAST_H2020</a>
+			    <a class="twitter-timeline" href="https://twitter.com/projectsniche?ref_src=twsrc%5Etfw">Tweets by projectsniche</a>
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
 		</div>
 		<div class="col-sm-6 col-xs-12 social-media-container">
-			<h1 class="base_heading">Follow Rest-Coast</h1>
+			<h1 class="base_heading">Follow NICHES</h1>
 			<div class="subscribe-container">
 				
 				<div class="subscribe-items">
