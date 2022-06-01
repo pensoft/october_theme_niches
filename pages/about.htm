@@ -10,7 +10,7 @@ robot_follow = "follow"
 [siteSearchInclude]
 
 [jumbotron background]
-jumbotron = "backgound"
+jumbotron = "background"
 title = 1
 background = "#ffffff"
 templates = "template1"
@@ -35,16 +35,32 @@ iconsHeaderActive = "ui-icon-blank"
 templates = "template3"
 
 [jumbotron]
-jumbotron = "about-page-image"
+jumbotron = "about-image"
+title = 0
 background = "#ffffff"
 templates = "template1"
 description_limit = 0
 
 [jumbotron jumbotron2]
-jumbotron = "rest-coast-will-address"
+jumbotron = "about-intro"
 background = "#ffffff"
 templates = "template1"
 description_limit = 0
+
+==
+<?php
+use Pensoft\Partners\Models\Partners;
+use Pensoft\Cardprofiles\Models\Profiles;
+function onStart(){
+	$this['partners'] = Partners::get();
+}
+
+function onInsider(){
+	$this['partner'] = Partners::where('id', (int)post('partner_id'))->first();
+	$this['insider_members'] = Profiles::where('partner_id', (int)post('partner_id'))->where('category_id',  2)->get();;
+}
+
+?>
 ==
 {% component 'siteSearchInclude' %}
 <div class="container">
@@ -72,6 +88,22 @@ description_limit = 0
                     {% component 'accordion' %}
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row top-xs">
+        <div class="col-md-12 col-xs-12 about_partners_page">
+			<div class="row between-xs partners_list">
+				{% for partner in partners %}
+				<div class="col-lg-2 col-xs-6 partner-item">
+					<a href="javascript:void(0);" onclick="onCustomPartners('{{ partner.id }}')">
+						<img alt="{{partner.instituion}}" src="{{partner.cover|crop_image|resize(153, auto, { mode: 'crop' })}}">
+					</a>
+				</div>
+
+				{% endfor %}
+				<div id="mycomponentinsider"></div>
+			</div>
+
         </div>
     </div>
 </div>

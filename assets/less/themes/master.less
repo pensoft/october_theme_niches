@@ -33,9 +33,8 @@ ul{
 ol.q {list-style-type: upper-roman; padding-left: 20px;}
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, .title, .head, .page_heading{
-  font-family: Poppins;
   color: @secondary-btn-color;
-  font-weight: 600;
+  font-weight: bold;
   text-transform: uppercase;
 }
 h1, h2{
@@ -50,8 +49,10 @@ h1, h2{
   color: @white-color;
 }
 .page_heading{
-  color: @dark-color;
+  color: @heading-text-color;
   font-size: 75px;
+  line-height: 100px;
+  font-family: Poppins;
   &.ml-1{
   }
   .breakpoint-small-down({
@@ -93,7 +94,8 @@ h1, h2{
     }
 
     h1 {
-        &.underline {
+        &.underline{
+            font-family: Poppins;
             padding-left: 1rem;
             padding-right: 1rem;
             margin-bottom: 50px;
@@ -228,7 +230,7 @@ h1, h2{
 }
 
 #layout-content:not(.home){
-  margin-top: 90px;
+  padding-top: 100px;
 }
 
 .content-wrapper{

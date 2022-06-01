@@ -66,14 +66,14 @@ description_limit = 0
 	<!-- subscribes -->
 	<div class="row between-xs">
 		<div class="col-lg-6 col-sm-5 col-xs-12">
-			<h1 class="base_heading">Latest updates</h1>
+			<h1 class="base_heading">Follow NICHES</h1>
 			<div class="twitter-widget">
 			    <a class="twitter-timeline" href="https://twitter.com/projectsniche?ref_src=twsrc%5Etfw">Tweets by projectsniche</a>
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
 		</div>
 		<div class="col-sm-6 col-xs-12 social-media-container">
-			<h1 class="base_heading">Follow NICHES</h1>
+			<h1 class="base_heading">&nbsp;</h1>
 			<div class="subscribe-container">
 				
 				<div class="subscribe-items">
@@ -97,16 +97,6 @@ description_limit = 0
 					{% endif %}
 				</div>
 
-				{% if (this.theme.footer_funds_flag.getPath() != null or this.theme.footer_funds_text != '') %}
-			        <div class="homepage-funding funding row middle-xs">
-			            {% if this.theme.footer_funds_flag.getPath() %}
-							<div class="col-md-2 start-md col-xs-12 center-xs"><img class="text mr-0 mr-lg-1" style="height:70px;" src="{{ this.theme.footer_funds_flag.getPath() }}"/></div>
-			            {% endif %}
-			            {% if this.theme.footer_funds_text %}
-							<div class="col-md start-md col-xs-12 center-xs"><span class="align-items-center mt-md-0 mt-1">{{this.theme.footer_funds_text}}</span></div>
-			            {%endif %}
-			        </div>
-		        {% endif %}
 
 			</div>
 
