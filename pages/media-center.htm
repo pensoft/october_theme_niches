@@ -24,13 +24,13 @@ function onStart(){
 ?>
 ==
 <div class="container">
-	<h1 class="page_heading ml-1">Media center</h1>
+	<h1 class="page_heading ml-1">Media materials</h1>
 	<div class="row">
 		{% if logos.count() %}
 		<div class="col-sm-2 col-xs-6">
 			<div class="card-container text-center">
 				<a href="{{url('media-center')}}/logo" title="Logo">
-					<span class="card_image_container" style="background: url({{'pensoft/mediacenter-logo.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/logo" title="Logo"></span>
+					<span class="card_image_container" style="background: url({{'pensoft/numbers-drop.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/logo" title="Logo"></span>
 					<span class="media_label">Logo</span>
 				</a>
 			</div>
@@ -40,7 +40,7 @@ function onStart(){
 		<div class="col-sm-2 col-xs-6">
 			<div class="card-container text-center">
 				<a href="{{url('media-center')}}/flyer" title="Promotional materials">
-					<span class="card_image_container" style="background: url({{'pensoft/promotional-materials.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/flyer" title="Flyer and poster"></span>
+					<span class="card_image_container" style="background: url({{'pensoft/promo-materials.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/flyer" title="Promotional materials"></span>
 					<span class="media_label">Promotional materials</span>
 				</a>
 			</div>
@@ -51,7 +51,7 @@ function onStart(){
 		<div class="col-sm-2 col-xs-6">
 			<div class="card-container text-center">
 				<a href="{{url('media-center')}}/press-releases" title="Press releases">
-					<span class="card_image_container" style="background: url({{'pensoft/press_releases.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/press-releases" title="Press releases"></span>
+					<span class="card_image_container" style="background: url({{'pensoft/press-releases.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/press-releases" title="Press releases"></span>
 					<span class="media_label">Press releases</span>
 				</a>
 			</div>

@@ -39,20 +39,13 @@ description_limit = 0
 <div class="container-fluid">
 	<div class="container">
 		<div class="row between-md around-xs">
-			<div class="col-sm-6 col-xs-12 vision">
+			<div class="col-sm-5 col-xs-12 vision">
 				{% component 'vision' %}
 			</div>
-			<div class="col-sm-6 col-xs-12 mission">
+			<div class="col-sm-5 col-xs-12 mission">
 				{% component 'mission' %}
 			</div>
 		</div>
-	</div>
-</div>
-
-<div class="container-fluid">
-	<div class="container">
-		<h1 class="base_heading">EVENTS</h1>
-		{% component 'Timeline' %}
 	</div>
 </div>
 
@@ -68,14 +61,14 @@ description_limit = 0
 		<div class="col-lg-6 col-sm-5 col-xs-12">
 			<h1 class="base_heading">Follow NICHES</h1>
 			<div class="twitter-widget">
-			    <a class="twitter-timeline" href="https://twitter.com/projectsniche?ref_src=twsrc%5Etfw">Tweets by projectsniche</a>
+			    <a class="twitter-timeline" href="https://twitter.com/NICHES_project?ref_src=twsrc%5Etfw">Tweets by NICHES_project</a>
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
 		</div>
 		<div class="col-sm-6 col-xs-12 social-media-container">
 			<h1 class="base_heading">&nbsp;</h1>
 			<div class="subscribe-container">
-				
+
 				<div class="subscribe-items">
 					{% if this.theme.twitter %}
 					<a href="{{this.theme.twitter_url}}" target="_blank" class="btn p-primary pr p-twitter large"></a>
@@ -95,6 +88,9 @@ description_limit = 0
 					{% if this.theme.researchgate %}
 					<a href="{{this.theme.researchgate_url}}" target="_blank" class="btn pr p-primary p-researchgate large" style="width: 64px;"></a>
 					{% endif %}
+					{%if this.theme.subscribe%}
+					<a  href="{{instagram_url}}" target="_blank" class="btn pr p-primary subscribe_home" target="_blank">Subscribe to our newsletter</a>
+					{%endif%}
 				</div>
 
 

@@ -121,8 +121,8 @@
   font-size: 1em;
   cursor: pointer;
   width: 100%;
-  background: #e6e6e6;
-  .rounded(10px);
+  background: #E2EBF4;
+  .rounded(50px);
   .breakpoint-small-down({
     width: 90%;
   });
@@ -142,12 +142,10 @@
   font-size: 1em;
   cursor: pointer;
   width: 94%;
-  background: #e6e6e6!important;
-  .rounded(10px);
   .breakpoint-small-down({
     width: 90%;
     background: #e6e6e6;
-  margin-bottom: 20px!important;
+    margin-bottom: 20px!important;
   });
 }
 
@@ -160,8 +158,7 @@
   font-size: 1em;
   font-weight: bold;
   div:first-of-type, div:nth-of-type(2){
-    font-weight: normal;
-    font-family: Poppins;
+    font-weight: 500;
     font-size: 22px;
   }
 
@@ -208,8 +205,12 @@
   }
 }
 
+.pilots .plusminus .plus, .pilots .plusminus .minus{
+  color: #476899!important;
+}
+
 .work_packages .green_bullet{
-  background: @default-color;
+  background: @green-color;
   color: @white-color;
   width: 60px!important;
   max-width: 60px!important;
@@ -223,12 +224,11 @@
   font-size: 20px!important;
 }
 .pilots .green_bullet{
-  background: url("../../assets/images/location_pilots.svg") left no-repeat;
-  background-size: contain;
-  width: 50px!important;
-  max-width: 50px!important;
-  height: 47px;
-  line-height: 47px;
+  background: @white-color url("../../assets/images/location_pilots.svg") center no-repeat;
+  background-size: 22px;
+  width: 55px!important;
+  height: 55px!important;
+  .rounded(50%);
   flex-basis: unset;
 }
 
@@ -240,9 +240,9 @@
 }
 
 .pilots .ui-accordion-header.col-md-6.col-xs-12{
-  width: 50%!important;
-  flex-basis: 50%!important;
-  max-width: 50%!important;
+  width: 100%!important;
+  flex-basis: 100%!important;
+  max-width: 100%!important;
 }
 
 #ui-id-1,

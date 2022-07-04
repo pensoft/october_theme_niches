@@ -48,7 +48,7 @@ return Redirect::to('/media-center/logo');
 }
 ?>
 ==
-<div class="container">
+<div class="container media_center_container">
 
 	<a href="/media-center" class="back-to"> &#10094; Back to Media center</a><br><br>
 
@@ -77,7 +77,7 @@ return Redirect::to('/media-center/logo');
 		<div class="col-md-2 col-xs-12">
 			<div class="card-container text-center">
 				<span class="card_image_container" style="background: url({{'pensoft/file-jpg.svg'|media}}) center center no-repeat; " title="Logo"></span>
-				<span class="card_title">JPG, {{record.file_jpg.size}}</span><br>
+				<span class="card_title">{{record.name}}, <br>JPG, {{record.file_jpg.size}}</span><br>
 				<br><a href="{{ ''| page }}?{{queries}}&download={{record.file_jpg.id}}&file_name={{record.file_jpg.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary">Download</a>
 			</div>
 		</div>
@@ -86,7 +86,7 @@ return Redirect::to('/media-center/logo');
 		<div class="col-md-2 col-xs-12">
 			<div class="card-container text-center">
 				<span class="card_image_container" style="background: url({{'pensoft/file-png.svg'|media}}) center center no-repeat;" title="Logo"></span>
-				<span class="card_title">PNG, {{record.file_png.size}}</span><br>
+				<span class="card_title">{{record.name}}, <br>PNG, {{record.file_png.size}}</span><br>
 				<br><a href="{{ ''| page }}?{{queries}}&download={{record.file_png.id}}&file_name={{record.file_png.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary">Download</a>
 			</div>
 		</div>
@@ -95,7 +95,7 @@ return Redirect::to('/media-center/logo');
 		<div class="col-md-2 col-xs-12">
 			<div class="card-container text-center">
 				<span class="card_image_container" style="background: url({{'pensoft/file-eps.svg'|media}}) center center no-repeat;" title="Logo"></span>
-				<span class="card_title">SVG, vector, {{record.file_eps.size}}</span><br>
+				<span class="card_title">{{record.name}}, <br>SVG, vector, {{record.file_eps.size}}</span><br>
 				<br><a href="{{ ''| page }}?{{queries}}&download={{record.file_eps.id}}&file_name={{record.file_eps.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary">Download</a>
 			</div>
 		</div>

@@ -132,7 +132,7 @@
     width: fit-content;
     font-weight: bold;
     cursor: pointer;
-    font-family: Poppins;
+    font-family: Lalezar;
     .breakpoint-small-down({
       margin-left: 0px;
       width: 100%;
@@ -173,7 +173,9 @@
 
 .events_list_container{
   .rounded(4px);
-  box-shadow: 0 6px 27px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow:    inset 0 4px 13px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 4px 13px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 4px 13px rgba(0, 0, 0, 0.3);
   width: 100%;
 
   .event_list_item{
@@ -185,7 +187,7 @@
     .time_and_date{
       color: @link-color;
       font-weight: bold;
-      font-family: Poppins;
+      font-family: Lalezar;
     }
   }
 }

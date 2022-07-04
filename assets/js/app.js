@@ -51,22 +51,55 @@ $(document).ready(function() {
 		$(value).find('a').attr( "onclick", "window.open(this.href, '_blank');" )
 	});
 
+
+
+
+	$('.dropdown a').click(function(event) {
+		// event.preventDefault();
+		var caseStudiesHashTitle = location.hash;
+		console.log($(this).val());
+
+		if(caseStudiesHashTitle){
+			var caseStudiesTitle = caseStudiesHashTitle.substring(1, caseStudiesHashTitle.length);
+			$("path[title='"+caseStudiesTitle.toUpperCase()+"']").addClass('active_path');
+
+			$('.accordion-border').each(function(){
+				var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
+				var toggler = $(this).find(".accordion-toggle");
+				if ( title.indexOf(caseStudiesTitle.toUpperCase()) >= 0 && !toggler.next(".accordion-content").is(':visible') ){
+					toggler.trigger( "click" );
+				}
+			});
+		}
+	});
+
+	onHashChange();
+	$(window).on("hashchange", function() {
+		onHashChange();
+	});
+
+
+
+
+
+	$('.pilots .accordion-border').click(function(){
+
+		// $("path").removeClass('active_path');
+		// var tooltip = document.getElementById("tooltip");
+		// tooltip.classList.remove("active");
+		var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
+		var toggler = $(this).find(".accordion-toggle");
+
+		if (toggler.next(".accordion-content").is(':visible')) {
+			$("path[title='"+title+"']").removeClass('active_path');
+		} else {
+			$("path[title='"+title+"']").addClass('active_path');
+		}
+	});
+
 	$('.nav.nav-pills').removeAttr('id');
 
 	var count = $("h1").text().length;
-
-	//
-	// $('.content-wrapper.news .content img').each(function(){
-	// 	$(this).attr('id', 'myImg');
-	// 	$(this).addClass('myImages');
-	// });
-	//
-	// $('.content-wrapper.news').after('<div id=\"myModal\" class=\"modal\">\n' +
-	// 	'  <span class=\"close_modal\">&times;</span>\n' +
-	// 	'  <img class=\"modal-content\" id=\"img01\">\n' +
-	// 	'  <div id=\"caption\"></div>\n' +
-	// 	'</div>');
-
 
 	$('.tabs').each(function(){
 		// For each set of tabs, we want to keep track of
@@ -165,7 +198,7 @@ $(document).ready(function() {
 	$('.about h1.display-1').attr('data-aos', 'fade-up');
 	$('h2.underline').attr('data-aos', 'fade-up');
 	$('.news_column').attr('data-aos', 'fade-up');
-	$('.timeline-item').attr('data-aos', 'fade-up');
+	// $('.timeline-item').attr('data-aos', 'fade-up');
 
 	// about page
 
@@ -181,31 +214,12 @@ $(document).ready(function() {
 	$('.coordinator_image').attr('data-aos', 'fade-up');
 
 
-// 	// create references to the modal...
-// 	var modal = document.getElementById('myModal');
-// // to all images -- note I'm using a class!
-// 	var images = document.getElementsByClassName('myImages');
-// // the image in the modal
-// 	var modalImg = document.getElementById("img01");
-// // and the caption in the modal
-// 	var captionText = document.getElementById("caption");
-//
-// // Go through all of the images with our custom class
-// 	for (var i = 0; i < images.length; i++) {
-// 		var img = images[i];
-// 		// and attach our click listener for this image.
-// 		img.onclick = function(evt) {
-// 			modal.style.display = "block";
-// 			modalImg.src = this.src;
-// 			captionText.innerHTML = this.alt;
-// 		}
-// 	}
-//
-// 	var span = document.getElementsByClassName("close_modal")[0];
-//
-// 	span.onclick = function() {
-// 		modal.style.display = "none";
-// 	}
+	// $('.news_column, .single-news-item').each(function(){
+	$('.news_column').each(function(){
+		$(this).find('img').wrapAll("<div class='shadow'></div>")
+	});
+
+	$('.news .news-container, .news .news-image').removeClass('col-xs-12').removeClass('center-xs');
 
 	$('.partners .partner_description, .partners .list-item-body').each(function(){
 		var countParagraphs = $(this).find('p').length;
@@ -232,6 +246,25 @@ $(document).ready(function() {
 
 });
 
+function onHashChange(){
+	$("path").removeClass('active_path');
+	$(".accordion-content").hide();
+	var caseStudiesHashTitle = location.hash;
+
+	if(caseStudiesHashTitle){
+		var caseStudiesTitle = caseStudiesHashTitle.substring(1, caseStudiesHashTitle.length);
+		$("path[title='"+caseStudiesTitle.toUpperCase()+"']").addClass('active_path');
+
+		$('.accordion-border').each(function(){
+			var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
+			var toggler = $(this).find(".accordion-toggle");
+			if ( title.indexOf(caseStudiesTitle.toUpperCase()) >= 0 && !toggler.next(".accordion-content").is(':visible') ){
+				toggler.trigger( "click" );
+			}
+		});
+	}
+}
+
 
 function createTippy(element, options) {
 	return new Promise(resolve => {
@@ -244,30 +277,6 @@ function createTippy(element, options) {
 		resolve();
 	});
 }
-//
-// function getScreenSize() {
-// 	var myHeight = 0;
-// 	var myWidth = 0;
-// 	if (window.innerWidth && window.innerHeight) {
-// 		// Netscape & Mozilla
-// 		myHeight = window.innerHeight;
-// 		myWidth = window.innerWidth;
-// 	} else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
-// 		// IE > 6
-// 		myHeight = document.documentElement.clientHeight;
-// 		myWidth = document.documentElement.clientWidth;
-// 	} else if (document.body.offsetWidth && document.body.offsetHeight) {
-// 		// IE = 6
-// 		myHeight = document.body.offsetHeight;
-// 		myWidth = document.body.offsetWidth;
-// 	} else if (document.body.clientWidth && document.body.clientHeight) {
-// 		// IE < 6
-// 		myHeight = document.body.clientHeight;
-// 		myWidth = document.body.clientWidth;
-// 	}
-//
-// 	return {'width': myWidth, 'height': myHeight};
-// }
 
 
 
@@ -325,8 +334,22 @@ function isBreakpointLarge() {
 }
 
 function showSearchForm(){
+	// if ($(".search").is(':visible')) {
+	// 	$('#menu').show();
+	// } else {
+	// 	$(".search").slideDown(300);
+	// 	$('#menu').hide();
+	// }
+	// $('#menu').hide();
 	$('#layout-header').toggleClass('full-width');
 	$('#search').toggle();
+	$('#menu li').hide();
+}
+
+function hideSearchForm(){
+	$('#layout-header').toggleClass('full-width');
+	$('#search').hide();
+	$('#menu li').show();
 }
 
 function requestFormLibrary() {
@@ -357,23 +380,6 @@ function isScrolledIntoView(elem) {
 
 }
 
-function animateNumbersOld() {
-	if (isScrolledIntoView($(".numbers")) && !viewed) {
-		viewed = true;
-		$('.count').each(function () {
-			$(this).prop('Counter',0).animate({
-				Counter: $(this).text()
-			}, {
-				duration: 1500,
-				easing: 'swing',
-				step: function (now) {
-					$(this).text(Math.ceil(now));
-				}
-			});
-		});
-	}
-}
-
 
 function animateNumbers() {
 	if (isScrolledIntoView($(".numbers")) && !viewed) {
@@ -394,7 +400,14 @@ function animateNumbers() {
 }
 
 
+function scrollDown(){
+	var element = $('#layout-content');
+	$("html, body").animate({ scrollTop: element.offset().top - 190 }, 500);
+}
+
+
 function onCustomPartners(pPartnerId) {
+		$('.partner-item').removeClass('active_partner');
 		$.request('onInsider', {
 			update: { 'components/componentinsider': '#mycomponentinsider',
 			},
@@ -402,26 +415,7 @@ function onCustomPartners(pPartnerId) {
 				partner_id: pPartnerId
 			},
 		}).then(response => {
-			$('.insider-info .card-body .body').each(function(){
-				var countParagraphs = $(this).find('p').length;
-
-				if(countParagraphs > 1) {
-					$(this).find('p').first().append('<div class="dorsal">Read more</div>');
-					$(this).find('p:not(:first)').wrapAll("<div class='toogle-contact-paragraphs'></div>")
-				}
-			});
-
-			$('.dorsal').click(function () {
-				var link = $(this);
-				link.parent().parent().find('.toogle-contact-paragraphs').slideToggle('slow', function() {
-					if ($(this).is(':visible')) {
-						link.text('Read less');
-					} else {
-						link.text('Read more');
-					}
-				});
-
-			});
+			$('.partner_item_'+pPartnerId).addClass('active_partner');
 
 			$('html, body').animate({
 				scrollTop: $("#mycomponentinsider").offset().top - 100
@@ -468,8 +462,53 @@ function init() {
 
     });
     // appendProfile()
-    appendSignIn()
-    appendSignOut()
+    // appendSignIn()
+    // appendSignOut()
+}
+
+
+function handlePilotsSVGMapMouseMove(event) {
+	var title = $(event.target).attr('title');
+	var tooltip = document.getElementById("tooltip");
+	if (!title) {
+		title = $(event.target).parent().attr('title');
+	}
+
+	switch (title) {
+		case 'Berlin':
+		case 'Rotterdam':
+		case 'Barcelona':
+		case 'Sheffield':
+		case 'Boston':
+			break;
+		default:
+			return tooltip.classList.remove("active");
+	}
+
+	var x = event.clientX;
+	var y = event.clientY;
+
+	tooltip.style.left = (x + 20) + "px";
+	tooltip.style.top = (y - 20) + "px";
+
+	tooltip.innerHTML = $(event.target).attr('title');
+	tooltip.classList.add("active");
+
+}
+
+function onPilots(pTitle) {
+	// $("path").removeClass('active_path');
+	var tooltip = document.getElementById("tooltip");
+	tooltip.classList.remove("active");
+	$("path[title='"+pTitle+"']").addClass('active_path');
+
+	$('.accordion-border').each(function(){
+		var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
+		var toggler = $(this).find(".accordion-toggle");
+		if ( title.indexOf(pTitle.toUpperCase()) >= 0 && !toggler.next(".accordion-content").is(':visible') ){
+			toggler.trigger( "click" );
+		}
+	});
 }
 
 init()

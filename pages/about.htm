@@ -47,6 +47,12 @@ background = "#ffffff"
 templates = "template1"
 description_limit = 0
 
+[jumbotron numbers]
+jumbotron = "niches-numbers"
+title = 1
+background = "#ffffff"
+templates = "template1"
+description_limit = 0
 ==
 <?php
 use Pensoft\Partners\Models\Partners;
@@ -59,7 +65,6 @@ function onInsider(){
 	$this['partner'] = Partners::where('id', (int)post('partner_id'))->first();
 	$this['insider_members'] = Profiles::where('partner_id', (int)post('partner_id'))->where('category_id',  2)->get();;
 }
-
 ?>
 ==
 {% component 'siteSearchInclude' %}
@@ -78,6 +83,11 @@ function onInsider(){
             {% component 'jumbotron' %}
         </div>
     </div>
+    <div class="row">
+        <div class="col-xs-12">
+            {% component 'numbers' %}
+        </div>
+    </div>
     <div class="row top-xs">
         <div class="col-md-6 col-xs-12 about_goals_page">
             {% component 'goals' %}
@@ -90,13 +100,18 @@ function onInsider(){
             </div>
         </div>
     </div>
-    <div class="row top-xs">
+    <div class="row top-xs mb-4">
+        <h1 class="display-1 aos-init aos-animate" data-aos="fade-up">Partners</h1>
         <div class="col-md-12 col-xs-12 about_partners_page">
-			<div class="row between-xs partners_list">
+			<div class="row between-lg around-xs partners_list">
 				{% for partner in partners %}
-				<div class="col-lg-2 col-xs-6 partner-item">
+				<div class="col-lg-2 col-xs-12 partner-item partner_item_{{ partner.id }}">
 					<a href="javascript:void(0);" onclick="onCustomPartners('{{ partner.id }}')">
+						{% if partner.cover %}
 						<img alt="{{partner.instituion}}" src="{{partner.cover|crop_image|resize(153, auto, { mode: 'crop' })}}">
+						{% else %}
+						<img alt="{{partner.instituion}}" src="{{'CMS_icons_avatar_white.svg'|media}}">
+						{% endif %}
 					</a>
 				</div>
 

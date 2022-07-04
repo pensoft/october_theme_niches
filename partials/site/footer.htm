@@ -81,7 +81,7 @@ theme = "dark-bottom"
 			<div class="col-xs-12 col-md-2 start-md center-xs col-sm-6 start-sm">
 				<div class="head">Stay up to date</div>
 				<div class="icons mt-1">
-					<a href="{{this.theme.subscribe}}" target="_blank" class="pr p-secondary p-subscribe big"></a>
+					<a href="{{this.theme.subscribe}}" target="_blank" class="pr p-secondary subscribe_footer">Subscribe</a>
 				</div>
 			</div>
 			{%endif%}
@@ -90,6 +90,8 @@ theme = "dark-bottom"
 		<div class="row nowrap text-light d-flex justify-content-between align-items-center flex-column flex-lg-row dark-background">
 			{% if (footer_funds_flag != null or footer_funds_text != '') %}
 			<div class="funding flex-column my-1 my-lg-0 flex-lg-row px-1 align-items-center col-sm col-xs-12">
+				<img class="text mr-0 mr-lg-1" style="height:50px;" src="{{ 'pensoft/biodviersa-footer.svg'|media }}"/>
+				<img class="text mr-0 mr-lg-1" style="height:50px;" src="{{ 'pensoft/water-jpi-logo.svg'|media }}"/>
 				{% if footer_funds_flag %}
 				<img class="text mr-0 mr-lg-1" style="height:50px;" src="{{ footer_funds_flag }}"/>
 				{% endif %}
@@ -101,8 +103,8 @@ theme = "dark-bottom"
 
 		</div>
 		<div class="row between-xs">
-			<div class="col-sm-2 col-xs-12 center-xs"><a href="/privacy-policy">Privacy Policy</a></div>
-			<div class="col-sm-3 col-xs-12 end-sm center-xs"><div class="powered-by my-1 my-lg-0 px-1 align-items-center end-sm center-xs">Designed and powered by <a href="https://pensoft.net/" target="_blank">Pensoft</a></div></div>
+			<div class="col-sm col-xs-12 start-lg center-xs powered-by"><a href="/privacy-policy">Privacy Policy</a></div>
+			<div class="col-sm col-xs-12 end-sm center-xs"><div class="powered-by my-1 my-lg-0 px-1 end-lg center-xs">Designed and powered by &nbsp;<a href="https://pensoft.net/" target="_blank">Pensoft</a></div></div>
 		</div>
 	</div>
 

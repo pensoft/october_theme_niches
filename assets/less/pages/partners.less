@@ -26,7 +26,9 @@ ul.partners_logos_list li {
 
 ul.partners_logos_list li:hover{
   margin-top: 0;
-  box-shadow: 0 6px 27px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow:    inset 0 4px 13px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 4px 13px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 4px 13px rgba(0, 0, 0, 0.3);
 }
 
 .partner_cover{
@@ -74,7 +76,7 @@ ul.partners_logos_list li:hover{
     padding-right: 0;
     margin-bottom: 0;
     text-align: left;
-    font-family: "Poppins";
+    font-family: "Lalezar";
     display: block;
     font-size: 36px;
     line-height: 1.7em;
@@ -135,32 +137,6 @@ ul.partners_logos_list li:hover{
 
 }
 
-.countries_list{
-  margin-top: 50px;
-  .country_map{
-    width: 47px;
-    height: 47px;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border: 2px solid @link-color;
-    border-radius: 50%;
-    padding: 40px;
-    background: @white-color;
-    &:hover{
-      background: @link-color;
-    }
-  }
-  .country_label{
-    text-align: center;
-    color: #2F2F2F;
-    width: 135px;
-    padding: 10px 0;
-    margin-bottom: 20px;
-  }
-}
-
 .partners_list .list{
   display: flex;
   flex-direction: row;
@@ -169,7 +145,9 @@ ul.partners_logos_list li:hover{
   });
 
   .list-item{
-    box-shadow: 0 6px 27px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow:    inset 0 4px 13px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 4px 13px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 4px 13px rgba(0, 0, 0, 0.3);
     .rounded(10px);
     margin: 34px 34px 0 0;
     padding: 34px;
@@ -201,7 +179,7 @@ ul.partners_logos_list li:hover{
       padding: 0;
     }
     .list-item-column .btn{
-      font-family: Poppins;
+      font-family: Lalezar;
       margin-top: 20px;
       color: @link-color;
       background: none;
@@ -227,9 +205,9 @@ ul.partners_logos_list li:hover{
   margin-top: 50px;
 
   .partner-item{
-    -moz-box-shadow:    inset 0 6px 27px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: inset 0 6px 27px rgba(0, 0, 0, 0.3);
-    box-shadow:         inset 0 6px 27px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow:    inset 0 4px 13px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 4px 13px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 4px 13px rgba(0, 0, 0, 0.3);
     .rounded(50%);
     width: 227px;
     max-width: 227px;
@@ -237,16 +215,36 @@ ul.partners_logos_list li:hover{
     padding: 0;
     margin: 0;
 
+    .breakpoint-laptop-down({
+      width: 200px;
+      max-width: 200px;
+      height: 200px;
+    });
+
+    &.active_partner, &:hover{
+      -moz-box-shadow:    none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
     a{
       width: 100%;
       height: 100%;
       display: flex;
       align-items: center;
+      &:hover{
+        opacity: 0.8;
+      }
       img{
         margin: 0 auto;
         width: 153px;
         height: auto;
-        object-fit: cover;
+        object-fit: contain;
+        .breakpoint-laptop-down({
+          width: 130px;
+          height: 130px;
+          object-fit: contain;
+        });
       }
     }
   }
@@ -257,7 +255,7 @@ ul.partners_logos_list li:hover{
   cursor: pointer;
   color: @link-color;
   margin-top: 10px;
-  font-family: Poppins;
+  font-family: Lalezar;
 }
 
 .toogle-contact-paragraphs { display: none; }
@@ -265,4 +263,50 @@ ul.partners_logos_list li:hover{
 .see_all_partners_link{
   width: 100%;
 }
+
+.partners-insider{
+  margin-top: 50px;
+  a{
+    font-size: 22px;
+    font-weight: bold;
+    color: #102441;
+    margin-bottom: 20px;
+  }
+  .member_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img{
+      width: 193px;
+      height: 193px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(100%);
+    }
+    .member_name{
+      width: 193px;
+      text-align: center;
+      align-items: center;
+      display: block;
+      margin: 20px auto 40px auto;
+      color: #102441;
+      font-size: 22px;
+      font-weight: bold;
+    }
+  }
+
+}
+
+.active_path{
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
 

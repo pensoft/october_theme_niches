@@ -14,6 +14,10 @@ escape = 1
 [cookieBanner]
 include_css = 1
 update_selector = "#gdpr-reload"
+
+[carousel]
+id = 1
+
 ==
 <!DOCTYPE html>
 <html>
@@ -29,7 +33,14 @@ update_selector = "#gdpr-reload"
     <link href="{{ ['assets/less/theme.less']|theme }}" rel="stylesheet">
     <link href="{{ ['assets/css/scale.css']|theme }}" rel="stylesheet">
     <link href="{{ ['assets/css/light.css']|theme }}" rel="stylesheet">
+	{% if this.page.id == 'home' %}
+	<link href="{{ 'assets/css/bootstrap.min.css'|theme }}" rel="stylesheet">
+	{% endif %}
     <script src="{{ 'assets/js/jquery.js'|theme }}"></script>
+	{% if this.page.id == 'home' %}
+	<script src="{{ 'assets/js/bootstrap.min.js'|theme }}"></script>
+	<script src="{{ 'assets/js/anime.js'|theme }}"></script>
+	{% endif %}
     <script src="{{ 'assets/js/popper.min.js'|theme }}"></script>
     <script src="{{ 'assets/js/tippy-bundle.umd.min.js'|theme}}"></script>
     <script src="{{ 'assets/js/app.js'|theme }}"></script>
@@ -59,7 +70,17 @@ update_selector = "#gdpr-reload"
 				page_title=this.page.title
 				page_id=this.page.id
 			%}
+			{% if this.page.id == 'home' %}
+			{% component 'carousel' %}
+			{% endif %}
 		</header>
+		{% if this.page.id == 'home' %}
+		<div class="container homepage">
+			<div class="slogan_text">
+				{{ this.theme.tag_line|raw }}
+			</div>
+		</div>
+		{% endif %}
 
 		<!-- Content -->
 		<section id="layout-content" class="{{this.page.id}}" >

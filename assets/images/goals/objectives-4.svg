@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52.044" height="73.581" viewBox="0 0 52.044 73.581">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2552" data-name="Rectangle 2552" width="52.044" height="73.581" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_15723" data-name="Group 15723" transform="translate(-151 -1943)">
+    <g id="Group_14823" data-name="Group 14823" transform="translate(151 1943)">
+      <g id="Group_14111" data-name="Group 14111" transform="translate(0 0)" clip-path="url(#clip-path)">
+        <path id="Path_27661" data-name="Path 27661" d="M26.027,0c4.383,7.487,8.755,13.745,12.689,19.381,7.728,11.068,13.328,19.067,13.328,28.187A26.022,26.022,0,0,1,0,47.568c0-9.12,5.592-17.119,13.33-28.187C17.276,13.744,21.637,7.487,26.025,0Z" transform="translate(0 0)" fill="#66b0f2"/>
+      </g>
+    </g>
+    <g id="Group_15722" data-name="Group 15722" transform="translate(-0.666)">
+      <g id="Group_15657" data-name="Group 15657" transform="translate(0 568)">
+        <path id="Path_28015" data-name="Path 28015" d="M9,4.02c4.971,0,9,.01,9,4.98A9,9,0,0,1,0,9C0,4.029,4.029,4.02,9,4.02Z" transform="translate(168 1422)" fill="#fff"/>
+        <circle id="Ellipse_2899" data-name="Ellipse 2899" cx="6" cy="6" r="6" transform="translate(171 1412)" fill="#fff"/>
+      </g>
+      <g id="Group_15658" data-name="Group 15658" transform="translate(18 566.555)">
+        <path id="Path_28015-2" data-name="Path 28015" d="M4.965,4.02c2.742,0,4.965.005,4.965,2.747A4.965,4.965,0,0,1,0,6.767C0,4.025,2.223,4.02,4.965,4.02Z" transform="translate(168 1415.714)" fill="#fff"/>
+        <circle id="Ellipse_2899-2" data-name="Ellipse 2899" cx="3" cy="3" r="3" transform="translate(170 1412.445)" fill="#fff"/>
+      </g>
+      <g id="Group_15659" data-name="Group 15659" transform="translate(-9.334 566.555)">
+        <path id="Path_28015-3" data-name="Path 28015" d="M4.965,4.02c2.742,0,4.965.005,4.965,2.747A4.965,4.965,0,0,1,0,6.767C0,4.025,2.223,4.02,4.965,4.02Z" transform="translate(168 1415.714)" fill="#fff"/>
+        <circle id="Ellipse_2899-3" data-name="Ellipse 2899" cx="3" cy="3" r="3" transform="translate(170 1412.445)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

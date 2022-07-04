@@ -1,15 +1,15 @@
-<div class="row between-xs">
+<div class="row between-xs partners-insider">
 	<div class="col-md-6 col-xs-12"><a href="{{partner.instituion_url}}" target="_blank">{{partner.instituion}}</a><p>{{partner.content|raw}}</p></div>
 	<div class="col-md-6 col-xs-12">
-		<div class="row between-xs">
+		<div class="row">
 			{% for member in insider_members %}
-				<div class="col-md-4 col-xs-12">
+				<div class="col-md-4 col-xs-12 member_item">
 					{% if member.avatar %}
 						<img src="{{member.avatar|crop_image|resize(153, auto, { mode: 'crop' })}}">
 					{% else %}
 						<img src="{{member.avatar|crop_image|resize(153, auto, { mode: 'crop' })}}">
 					{% endif %}
-					{{member.names}}</div>
+					<span class="member_name">{{member.names}}</span></div>
 			{% endfor %}
 		</div>
 

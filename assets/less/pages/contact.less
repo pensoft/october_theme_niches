@@ -29,14 +29,41 @@
     margin-bottom: 1rem;
 }
 
+.contact .row{
+  height: 100%!important;
+  align-items: center!important;
+  .breakpoint-small-down({
+    height: unset!important;
+  });
+  .profile-item{
+    max-width: 50%!important;
+    margin: 0 auto;
+    .breakpoint-laptop-down({
+      max-width: 70%!important;
+    });
+    .breakpoint-small-down({
+      max-width: 100%!important;
+    });
+  }
+}
+
 .contact_info h3{
   font-family: Muli;
+  font-size: 40px;
   font-weight: bold;
+  .breakpoint-huge-down({
+    font-size: 37px;
+  });
+}
+
+.coordinator_image{
+  width: fit-content;
 }
 
 .coordinator_image img{
-  border-radius: 10px;
+  border-radius: 50%;
   width: 100%;
+  max-width: 398px;
   margin-bottom: 30px;
 }
 
@@ -53,7 +80,7 @@
     margin-top: 0px;
     margin-right: 5px;
     &.p-location{
-      height: 73px;
+      //height: 73px;
     }
     &.p-mail{
       margin-top: -4px;

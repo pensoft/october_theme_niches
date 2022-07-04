@@ -1,3 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="36.328" height="36.328" viewBox="0 0 36.328 36.328">
-  <path id="Icon_awesome-bullseye" data-name="Icon awesome-bullseye" d="M18.164.563A18.164,18.164,0,1,0,36.328,18.727,18.164,18.164,0,0,0,18.164.563Zm0,31.641A13.477,13.477,0,1,1,31.641,18.727,13.469,13.469,0,0,1,18.164,32.2Zm0-22.852a9.375,9.375,0,1,0,9.375,9.375A9.375,9.375,0,0,0,18.164,9.352Zm0,14.063a4.688,4.688,0,1,1,4.688-4.687A4.693,4.693,0,0,1,18.164,23.414Z" transform="translate(0 -0.563)" fill="#4d6c9c"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="73.709" height="104.211" viewBox="0 0 73.709 104.211">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2552" data-name="Rectangle 2552" width="73.709" height="104.211" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_15718" data-name="Group 15718" transform="translate(-1337 -1198)">
+    <g id="Group_14113" data-name="Group 14113" transform="translate(1337 1198)">
+      <g id="Group_14111" data-name="Group 14111" transform="translate(0 0)" clip-path="url(#clip-path)">
+        <path id="Path_27661" data-name="Path 27661" d="M36.862,0c6.207,10.6,12.4,19.467,17.972,27.449,10.945,15.675,18.875,27,18.875,39.92A36.854,36.854,0,0,1,0,67.369c0-12.916,7.919-24.245,18.879-39.92C24.467,19.465,30.643,10.6,36.858,0Z" transform="translate(0 0)" fill="#66b0f2"/>
+      </g>
+    </g>
+    <path id="Icon_awesome-bullseye" data-name="Icon awesome-bullseye" d="M17.438.563A17.438,17.438,0,1,0,34.875,18,17.437,17.437,0,0,0,17.438.563Zm0,30.375A12.938,12.938,0,1,1,30.375,18,12.93,12.93,0,0,1,17.438,30.938ZM17.438,9a9,9,0,1,0,9,9A9,9,0,0,0,17.438,9Zm0,13.5a4.5,4.5,0,1,1,4.5-4.5A4.505,4.505,0,0,1,17.438,22.5Z" transform="translate(1357 1246.543)" fill="#fff"/>
+  </g>
 </svg>
