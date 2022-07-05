@@ -63,18 +63,19 @@ function onStart(){
 
 function onInsider(){
 	$this['partner'] = Partners::where('id', (int)post('partner_id'))->first();
-	$this['insider_members'] = Profiles::where('partner_id', (int)post('partner_id'))->where('category_id',  2)->get();;
+	$this['insider_members'] = Profiles::where('partner_id', (int)post('partner_id'))->where('category_id',  2)->get();
 }
 ?>
 ==
 {% component 'siteSearchInclude' %}
 <div class="container">
     <h1 class="page_heading ml-1">About</h1>
-    <div class="row middle-xs">
+    <div class="row top-xs">
         <div class="col-md-6 col-xs-12">
              <div class="we_will">
                 {% component 'jumbotron2' %}
              </div>
+
              <div class="background">
                 {% component 'background' %}
              </div>
@@ -88,6 +89,7 @@ function onInsider(){
             {% component 'numbers' %}
         </div>
     </div>
+    <a id="project"></a>
     <div class="row top-xs">
         <div class="col-md-6 col-xs-12 about_goals_page">
             {% component 'goals' %}
@@ -100,6 +102,7 @@ function onInsider(){
             </div>
         </div>
     </div>
+    <a id="partners"></a>
     <div class="row top-xs mb-4">
         <h1 class="display-1 aos-init aos-animate" data-aos="fade-up">Partners</h1>
         <div class="col-md-12 col-xs-12 about_partners_page">
@@ -116,8 +119,9 @@ function onInsider(){
 				</div>
 
 				{% endfor %}
-				<div id="mycomponentinsider"></div>
+
 			</div>
+            <div id="mycomponentinsider"></div>
 
         </div>
     </div>

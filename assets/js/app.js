@@ -4,19 +4,6 @@ var viewed = false;
 var documentHasScroll = function() {
     return window.innerHeight <= document.body.offsetHeight;
 };
-// var keepFooter = function(documentHasScroll){
-//     if (!document.getElementById("layout-footer")){
-//         return;
-//     }
-//
-//     if(documentHasScroll){
-//         document.getElementById("layout-footer").classList.remove('fixed-bottom');
-//     }else{
-//         document.getElementById("layout-footer").classList.add('fixed-bottom');
-//     }
-// }
-
-
 
 $(document).ready(function() {
 	/* MENU */
@@ -33,6 +20,21 @@ $(document).ready(function() {
 	var innerWidth = $('body').innerWidth();
 	headerNavbar.width(innerWidth);
 	width100.width(innerWidth);
+
+    $('.nav-item').children("a").each(function(){
+        if($(this).attr('data-toggle') == 'dropdown'){
+            $(this).removeAttr('data-toggle')
+        }
+    });
+    $('.dropdown a').click(function(){
+        if (location.href.indexOf("#") != -1) {
+            var link = $(this).attr('href');
+            var anchorId = link.substr(link.indexOf("#") + 1);
+            $('html, body').animate({
+                scrollTop: $("#"+anchorId).offset().top - 100
+            }, 500);
+        }
+    });
 
 
 	$('body').on('click', '.work_packages .accordion-toggle, .pilots .accordion-toggle', function () {
@@ -57,7 +59,6 @@ $(document).ready(function() {
 	$('.dropdown a').click(function(event) {
 		// event.preventDefault();
 		var caseStudiesHashTitle = location.hash;
-		console.log($(this).val());
 
 		if(caseStudiesHashTitle){
 			var caseStudiesTitle = caseStudiesHashTitle.substring(1, caseStudiesHashTitle.length);
@@ -428,7 +429,7 @@ function init() {
         if (isBreakpointLarge()) {
             $('#card-carousel').slick('unslick');
         } else {
-            if (typeof cardCarousel === 'function') { 
+            if (typeof cardCarousel === 'function') {
                 cardCarousel({
                     slidesToShow: 3,
                     slidesToScroll: 3,
@@ -444,7 +445,7 @@ function init() {
     });
     document.addEventListener('DOMContentLoaded', function () {
         if (!isBreakpointLarge()) {
-            if (typeof cardCarousel === 'function') { 
+            if (typeof cardCarousel === 'function') {
                 cardCarousel({
                     slidesToShow: 3,
                     slidesToScroll: 3,

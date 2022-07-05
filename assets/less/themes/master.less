@@ -52,12 +52,12 @@ h1, h2{
   font-size: 75px;
   line-height: 100px;
   font-family: Lalezar;
-  &.ml-1{
-  }
+
   .breakpoint-small-down({
     text-align: center;
     word-break: break-word;
     font-size: 46px;
+    line-height: 50px;
     margin-left: 0!important;
   });
 }
@@ -229,7 +229,7 @@ h1, h2{
 }
 
 #layout-content:not(.home){
-  padding-top: 80px;
+  padding-top: 90px;
 }
 
 .content-wrapper{
@@ -1101,6 +1101,20 @@ now override the 3.3 new styles for modern browsers & apply opacity
     z-index: -1;
     border-radius: 10px!important;
   }
+    &:hover{
+        -moz-box-shadow:    none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
+
+.news{
+    a:hover{
+        opacity: 1;
+    }
+    .card-title a:hover{
+        opacity: 0.7!important;
+    }
 }
 
 
@@ -1118,6 +1132,15 @@ now override the 3.3 new styles for modern browsers & apply opacity
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }
+}
+
+
+#project, #partners {
+    scroll-margin-top: 100px;
+}
+
+.cc_container .cc_message{
+    color: white;
 }
 
 
