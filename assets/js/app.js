@@ -501,13 +501,19 @@ function onPilots(pTitle) {
 	// $("path").removeClass('active_path');
 	var tooltip = document.getElementById("tooltip");
 	tooltip.classList.remove("active");
-	$("path[title='"+pTitle+"']").addClass('active_path');
+	$("path[title='"+pTitle.toUpperCase()+"']").addClass('active_path');
 
 	$('.accordion-border').each(function(){
 		var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
 		var toggler = $(this).find(".accordion-toggle");
 		if ( title.indexOf(pTitle.toUpperCase()) >= 0 && !toggler.next(".accordion-content").is(':visible') ){
 			toggler.trigger( "click" );
+			if(window.innerWidth <= 991){
+                $('html, body').animate({
+                    scrollTop: toggler.offset().top - 150
+                }, 500);
+            }
+
 		}
 	});
 }
