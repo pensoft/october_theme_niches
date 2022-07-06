@@ -50,7 +50,7 @@ $(document).ready(function() {
 	});
 
 	$('.work_packages .accordion-content').each(function( index, value ) {
-		$(value).find('a').attr( "onclick", "window.open(this.href, '_blank');" )
+		$(value).find('a').attr( "onclick", "window.open(this.href, '_blank');" );
 	});
 
 
@@ -256,7 +256,7 @@ function onHashChange(){
 		var caseStudiesTitle = caseStudiesHashTitle.substring(1, caseStudiesHashTitle.length);
 		$("path[title='"+caseStudiesTitle.toUpperCase()+"']").addClass('active_path');
 
-		$('.accordion-border').each(function(){
+		$('.pilots .accordion-border').each(function(){
 			var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
 			var toggler = $(this).find(".accordion-toggle");
 			if ( title.indexOf(caseStudiesTitle.toUpperCase()) >= 0 && !toggler.next(".accordion-content").is(':visible') ){
