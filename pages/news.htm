@@ -77,8 +77,8 @@ $this['related'] = $related;
 <div class="container">
 
 	{% if is_detail_page %}
-	<div class="row single-news-item">
-		<div class="col-xs-12 col-md-5">
+	<div class="single-news-item">
+		<div class="news_image_holder">
 			{% if article.cover %}
 			<img class="content left" src="{{ article.cover|crop_image|resize(673, 411, { mode: 'crop' }) }}" />
 			{% endif %}
@@ -87,19 +87,13 @@ $this['related'] = $related;
 			{% endif %}
 		</div>
 
-		<div class="col-xs-12 col-md-7">
 
 
-			<div class="news-title">
 				<h1 class="single-new-title">{{article.title}}</h1>
 
-			</div>
 
 			<div class="text-published">{{article.pretty_published_at}}</div>
-			<div class="content">
 				{{article.content|raw}}
-			</div>
-		</div>
 	</div>
 	<script>
 		createTippy('#share-{{article.slug}}', {content: '<div class="icons">{% if this.theme.facebook %}<a class="fb-xfbml-parse-ignore pr p-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{page_url}}&amp;src=sdkpreparse" target="_blank" ></a>{% endif %}{% if this.theme.twitter %}<a class="pr p-twitter" href="https://twitter.com/intent/tweet?text={{encoded_title}}{{page_url}}" target="_blank"></a>{% endif %}{% if this.theme.linkedin %}<a class="pr p-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{page_url}}" target="_blank"></a>{% endif %}</div>'})
