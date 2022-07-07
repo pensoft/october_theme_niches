@@ -26,14 +26,56 @@ $(document).ready(function() {
             $(this).removeAttr('data-toggle')
         }
     });
-    $('.dropdown a').click(function(){
+
+    if (window.location.hash) {
+        var link = window.location.hash;
+        var anchorId = link.substr(link.indexOf("#") + 1);
+        if($("#"+anchorId).offset()){
+            $('html, body').animate({
+                scrollTop: $("#"+anchorId).offset().top - 150
+            }, 500);
+        }else{
+            $('.accordion-border').each(function(){
+                var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
+                var toggler = $(this).find(".accordion-toggle");
+                if ( title.indexOf(anchorId.toUpperCase()) >= 0 && !toggler.next(".accordion-content").is(':visible') ){
+                    $('html, body').animate({
+                        scrollTop: toggler.parent().offset().top - 150
+                    }, 500);
+                    toggler.trigger( "click" );
+                }
+            });
+        }
+    }
+
+    $('.dropdown a').click(function(event) {
+
         if (location.href.indexOf("#") != -1) {
             var link = $(this).attr('href');
             var anchorId = link.substr(link.indexOf("#") + 1);
-            $('html, body').animate({
-                scrollTop: $("#"+anchorId).offset().top - 100
-            }, 500);
+            if($("#"+anchorId).length>0){
+                $('html, body').animate({
+                    scrollTop: $("#"+anchorId).offset().top - 150
+                }, 500);
+            }else{
+                // event.preventDefault();
+                $("path[title='"+anchorId.toUpperCase()+"']").addClass('active_path');
+
+                $('.accordion-border').each(function(){
+                    var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
+                    var toggler = $(this).find(".accordion-toggle");
+                    if ( title.indexOf(anchorId.toUpperCase()) >= 0 && !toggler.next(".accordion-content").is(':visible') ){
+                        $('html, body').animate({
+                            scrollTop: toggler.parent().offset().top - 150
+                        }, 500);
+                        toggler.trigger( "click" );
+                        event.preventDefault();
+                    }
+                });
+            }
         }
+
+
     });
 
 
@@ -53,49 +95,27 @@ $(document).ready(function() {
 		$(value).find('a').attr( "onclick", "window.open(this.href, '_blank');" );
 	});
 
+    $('.pilots .accordion-border').click(function(){
+        // $("path").removeClass('active_path');
+        // var tooltip = document.getElementById("tooltip");
+        // tooltip.classList.remove("active");
+        var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
+        var toggler = $(this).find(".accordion-toggle");
+        var string = title.split(',')[0];
+        if (toggler.next(".accordion-content").is(':visible')) {
+            $("path[title='"+string.toUpperCase()+"']").removeClass('active_path');
+        } else {
+            $("path[title='"+string.toUpperCase()+"']").addClass('active_path');
+        }
+    });
 
 
 
-	$('.dropdown a').click(function(event) {
-		// event.preventDefault();
-		var caseStudiesHashTitle = location.hash;
 
-		if(caseStudiesHashTitle){
-			var caseStudiesTitle = caseStudiesHashTitle.substring(1, caseStudiesHashTitle.length);
-			$("path[title='"+caseStudiesTitle.toUpperCase()+"']").addClass('active_path');
-
-			$('.accordion-border').each(function(){
-				var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
-				var toggler = $(this).find(".accordion-toggle");
-				if ( title.indexOf(caseStudiesTitle.toUpperCase()) >= 0 && !toggler.next(".accordion-content").is(':visible') ){
-					toggler.trigger( "click" );
-				}
-			});
-		}
-	});
 
 	onHashChange();
 	$(window).on("hashchange", function() {
 		onHashChange();
-	});
-
-
-
-
-
-	$('.pilots .accordion-border').click(function(){
-
-		// $("path").removeClass('active_path');
-		// var tooltip = document.getElementById("tooltip");
-		// tooltip.classList.remove("active");
-		var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
-		var toggler = $(this).find(".accordion-toggle");
-
-		if (toggler.next(".accordion-content").is(':visible')) {
-			$("path[title='"+title+"']").removeClass('active_path');
-		} else {
-			$("path[title='"+title+"']").addClass('active_path');
-		}
 	});
 
 	$('.nav.nav-pills').removeAttr('id');
@@ -501,21 +521,30 @@ function onPilots(pTitle) {
 	// $("path").removeClass('active_path');
 	var tooltip = document.getElementById("tooltip");
 	tooltip.classList.remove("active");
-	$("path[title='"+pTitle.toUpperCase()+"']").addClass('active_path');
+	if(!$("path[title='"+pTitle.toUpperCase()+"']").hasClass('active_path')){
+        $("path[title='"+pTitle.toUpperCase()+"']").addClass('active_path');
 
-	$('.accordion-border').each(function(){
-		var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
-		var toggler = $(this).find(".accordion-toggle");
-		if ( title.indexOf(pTitle.toUpperCase()) >= 0 && !toggler.next(".accordion-content").is(':visible') ){
-			toggler.trigger( "click" );
-			if(window.innerWidth <= 991){
+        $('.accordion-border').each(function(){
+            var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
+            var toggler = $(this).find(".accordion-toggle");
+            if ( title.indexOf(pTitle.toUpperCase()) >= 0 && !toggler.next(".accordion-content").is(':visible') ){
+                toggler.trigger( "click" );
                 $('html, body').animate({
-                    scrollTop: toggler.offset().top - 150
+                    scrollTop: toggler.parent().offset().top - 150
                 }, 500);
             }
+        });
+    }else{
+        $("path[title='"+pTitle.toUpperCase()+"']").removeClass('active_path');
+        $('.accordion-border').each(function(){
+            var title = $(this).find(".accordion-toggle .col-xs.start-xs").text().toUpperCase();
+            var toggler = $(this).find(".accordion-toggle");
+            if ( title.indexOf(pTitle.toUpperCase()) >= 0 && toggler.next(".accordion-content").is(':visible') ){
+                toggler.trigger( "click" );
+            }
+        });
+    }
 
-		}
-	});
 }
 
 init()

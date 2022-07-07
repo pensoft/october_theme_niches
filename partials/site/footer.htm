@@ -90,13 +90,13 @@ theme = "dark-bottom"
 		<div class="row nowrap text-light d-flex justify-content-between align-items-center flex-column flex-lg-row dark-background">
 			{% if (footer_funds_flag != null or footer_funds_text != '') %}
 			<div class="funding flex-column my-1 my-lg-0 flex-lg-row px-1 align-items-center col-sm col-xs-12">
-				<img class="text mr-0 mr-lg-1" style="height:50px;" src="{{ 'pensoft/biodviersa-footer.svg'|media }}"/>
+				<img class="text mr-0 mr-lg-1" style="height:54px;" src="{{ 'pensoft/biodviersa-footer.svg'|media }}"/>
 				<img class="text mr-0 mr-lg-1" style="height:50px;" src="{{ 'pensoft/water-jpi-logo.svg'|media }}"/>
 				{% if footer_funds_flag %}
 				<img class="text mr-0 mr-lg-1" style="height:50px;" src="{{ footer_funds_flag }}"/>
 				{% endif %}
 				{% if footer_funds_text %}
-				<span class="align-items-center mt-sm-0 mt-1">{{footer_funds_text}}</span>
+				<span class="align-items-center mt-sm-0 mt-1">This project was funded through the 2020-2021 Biodiversa and Water JPI joint call for research proposals, under the BiodivRestore ERA-Net COFUND programme, and with the funding organisations: German Federal Ministry of Education and Research, Agencia Estatal de Investigaction, Ministry of Agriculture, Nature and Food Quality of the Netherlands.</span>
 				{%endif %}
 			</div>
 			{% endif %}
