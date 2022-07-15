@@ -232,11 +232,13 @@ nav:not(.navbar){
     .news-image{
       //flex-basis: 46%;
       //float: left;
-        //max-width: 46%;
-
+        max-width: 46%;
+        .breakpoint-large-down({
+            max-width: unset;
+        });
     }
 
-    .news-container{
+      .news-container{
       display: flex;
       flex-direction: column;
       font-weight: bold;
