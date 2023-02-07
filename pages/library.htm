@@ -8,6 +8,7 @@ robot_follow = "follow"
 [LibraryPage]
 templates = "template3"
 has_search = 1
+add_file_name = 1
 no_records_message = "NICHES deliverables and publications will be available soon!"
 ==
 <?php
@@ -41,14 +42,14 @@ function onStart(){
 
             {{ form_ajax( 'LibraryPage::onFilterRecords',
             {update: { '@libraries': '#partialLibraries' }}) }}
-            <input type="hidden" name="Filter[type]" value="2">
+            <input type="hidden" name="Filter[type]" value="3">
             <a>{{this.theme.site_name}} publications</a>
             {{ form_close() }}
 
 
             {{ form_ajax( 'LibraryPage::onFilterRecords',
             {update: { '@libraries': '#partialLibraries' }}) }}
-            <input type="hidden" name="Filter[type]" value="3">
+            <input type="hidden" name="Filter[type]" value="2">
             <a>Relevant publications</a>
             {{ form_close() }}
 
