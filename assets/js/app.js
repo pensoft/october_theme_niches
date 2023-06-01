@@ -91,7 +91,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.work_packages .accordion-content').each(function( index, value ) {
+	$('.work_packages .accordion-content, .projects_services .accordion-content').each(function( index, value ) {
 		$(value).find('a').attr( "onclick", "window.open(this.href, '_blank');" );
 	});
 

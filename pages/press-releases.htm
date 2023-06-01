@@ -27,7 +27,7 @@ function onStart(){
 
 	<a href="/media-center" class="back-to"> &#10094; Back to Media center</a><br><br>
 
-	<h1 class="page_heading">Presss releases</h1>
+	<h1 class="page_heading">Press releases</h1>
 
 	<div class="row">
 		{% set records = mediaPressreleasesList %}
@@ -37,12 +37,12 @@ function onStart(){
 		{% set detailsKeyColumn = mediaPressreleasesList.detailsKeyColumn %}
 		{% set detailsUrlParameter = mediaPressreleasesList.detailsUrlParameter %}
 
-		{% for record in records %}
+		{% for record in records|sort((a, b) => a.date|date('dm') > b.date|date('dm') or (a.date|date('dm') == b.date|date('dm') and a.date|date('Y') < b.date|date('Y'))) %}
 		{# Use spaceless tag to remove spaces inside the A tag. #}
 		{% spaceless %}
 		<div class="col-xs">
 			<div class="card-container library-item">
-				<span class="card_title">{{record.name}}</span><br><br>
+				<span class="card_title" style="display: block; min-height: 66px;">{{record.name}}</span><br><br>
 				<span class=""> {{record.date |date('F Y')}}</span> <br><br>
 				<div class="body">{{record.description | raw}}</div>
 				<div class="row link mt-3">
