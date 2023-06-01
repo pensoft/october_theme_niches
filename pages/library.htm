@@ -11,55 +11,12 @@ has_search = 1
 add_file_name = 1
 no_records_message = "NICHES deliverables and publications will be available soon!"
 ==
-<?php
-use Pensoft\Library\Models\Library;
 
-function onStart(){
-	$this['records'] =  Library::get();
-}
-?>
-==
 <div class="container">
 	<h1 class="page_heading">Outputs</h1>
 
-    {% if records.count() %}
-        <div class="tabs" id="mylibraryForm">
-
-
-            {{ form_ajax( 'LibraryPage::onFilterRecords',
-            {update: { '@libraries': '#partialLibraries' }}) }}
-            <input type="hidden" name="Filter[type]" value="0">
-            <a>All documents</a>
-            {{ form_close() }}
-
-
-            {{ form_ajax( 'LibraryPage::onFilterRecords',
-            {update: { '@libraries': '#partialLibraries' }}) }}
-            <input type="hidden" name="Filter[type]" value="1">
-            <a>Deliverables</a>
-            {{ form_close() }}
-
-
-            {{ form_ajax( 'LibraryPage::onFilterRecords',
-            {update: { '@libraries': '#partialLibraries' }}) }}
-            <input type="hidden" name="Filter[type]" value="3">
-            <a>{{this.theme.site_name}} publications</a>
-            {{ form_close() }}
-
-
-            {{ form_ajax( 'LibraryPage::onFilterRecords',
-            {update: { '@libraries': '#partialLibraries' }}) }}
-            <input type="hidden" name="Filter[type]" value="2">
-            <a>Relevant publications</a>
-            {{ form_close() }}
-
-
-
-        </div>
         {% component 'LibraryPage' %}
-    {% else %}
-        NICHES deliverables and publications will be available soon!
-    {% endif %}
+
 
 
 </div>
