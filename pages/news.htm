@@ -97,6 +97,9 @@ $this['related'] = $related;
             {% if article.cover %}
             <img class="" src="{{ article.cover|crop_image|resize(515, auto, { mode: 'crop' }) }}" />
             {% endif %}
+            {% if article.caption %}
+                {{article.caption|raw}}
+                {% endif %}
             {% if article.allow_share == 'yes' %}
             <div align="center"><div class="btn btn-primary share-btn text-center mt-1" id="share-{{article.slug}}">Share</div></div>
             {% endif %}
