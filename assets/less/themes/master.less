@@ -315,9 +315,14 @@ h1, h2{
       height: auto;
     });
 
-    .icons{
+    .mail-icon{
       width: 48px;
       height: 48px;
+    }
+
+    .icons{
+      // width: 48px;
+      // height: 48px;
       .breakpoint-small-down ({
         display: unset;
       });
@@ -383,8 +388,9 @@ h1, h2{
     width: auto;
   });
 }
-
 .social-media-container{
+  display: flex;
+  justify-content: center;
   .breakpoint-small-down({
     text-align: center;
     margin-top: 40px;
@@ -392,10 +398,12 @@ h1, h2{
 }
 .subscribe-container {
     display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
     flex-direction: column;
     box-sizing: border-box;
-    height: 550px;
-    justify-content: space-between;
+    // height: 550px;
     .breakpoint-large-down({
       text-align: center;
     });
