@@ -1,0 +1,72 @@
+title = "Final conference"
+layout = "default"
+url = "/final-conference"
+
+[siteSearchInclude]
+==
+<?php
+use Pensoft\Media\Models\Videos;
+use Pensoft\Media\Models\Presentations;
+use Pensoft\Articles\Models\Article;
+
+function onStart(){
+	$this['video'] =  Videos::first();
+	$this['article'] =  Article::where('id', 1)->first();
+	$this['presentations'] =  Presentations::get();
+}
+?>
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+
+    <h1 class="page_heading ml-1">Final conference</h1>
+
+    <div class="row justify-content-between news-details-container single-news-item">
+        <div class="col-md-6 col-xs-12 news-content">
+
+            <h1 class="single-new-title">{{article.title}}</h1>
+
+            <div class="text-published">{{article.pretty_published_at}}</div>
+            <div class="news-content">
+                {{article.content|raw}}
+            </div>
+            {% if loggedIn %}
+            <a class="edit-link" href="{{ article.backend_url }}" target="_blank">Edit</a>
+            {% endif %}
+        </div>
+        <div class="col-md-6 col-xs-12 news-image">
+            {% if article.cover %}
+            <img class="" src="{{ article.cover|crop_image|resize(780, auto, { mode: 'crop' }) }}" style="border-radius: 28px; width: auto;" />
+            {% endif %}
+            {% if article.caption %}
+            {{article.caption|raw}}
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
+
+<div class="container-fluid bg-secondary">
+
+    <div class="container final_video">
+        <h1 class="single-new-title">Watch final conference video</h1>
+        <p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="{{video.youtube_url}}" width="780" height="450"></iframe></p>
+    </div>
+
+</div>
+
+<div class="container final_presentations">
+    <h1 class="single-new-title">Presentations</h1>
+    <div class="row">
+        {% for presentation in presentations %}
+
+
+        <div class="col-md-6 col-xs-12">
+<!--            https://niches-project.eu/storage/app/uploads/public/67f/76f/c55/67f76fc55af25930037197.ppt-->
+            <iframe src="//docs.google.com/gview?url={{presentation.file.path}}&embedded=true" frameborder="0"></iframe>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
