@@ -1,6 +1,6 @@
-title = "Final conference"
-layout = "default"
 url = "/final-conference"
+layout = "default"
+title = "Final conference"
 
 [siteSearchInclude]
 ==
@@ -11,7 +11,7 @@ use Pensoft\Articles\Models\Article;
 
 function onStart(){
 	$this['video'] =  Videos::first();
-	$this['article'] =  Article::where('id', 1)->first();
+	$this['article'] =  Article::where('id', 56)->first();
 	$this['presentations'] =  Presentations::get();
 }
 ?>
@@ -62,9 +62,9 @@ function onStart(){
         {% for presentation in presentations %}
 
 
-        <div class="col-md-6 col-xs-12">
-<!--            https://niches-project.eu/storage/app/uploads/public/67f/76f/c55/67f76fc55af25930037197.ppt-->
-            <iframe src="//docs.google.com/gview?url={{presentation.file.path}}&embedded=true" frameborder="0"></iframe>
+        <div class="col-md-6 col-xs-12 mb-4">
+            <iframe src="https://docs.google.com/gview?url={{presentation.file.path}}&embedded=true" frameborder="0"></iframe>
+            <p class="presentation_title">{{presentation.name}}</p>
         </div>
         {% endfor %}
     </div>
