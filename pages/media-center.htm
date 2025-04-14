@@ -70,6 +70,30 @@ function onStart(){
 		</div>
 		{% endif %}
 
+
+		{% if videos.count() %}
+		<div class="col-sm-2 col-xs-6">
+			<div class="card-container text-center">
+				<a href="{{url('media-center')}}/videos" title="Videos">
+					<span class="card_image_container" style="background: url({{'pensoft/videos.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/videos" title="Videos"></span>
+					<span class="media_label">Videos</span>
+				</a>
+			</div>
+		</div>
+		{% endif %}
+
+
+		{% if presentations.count() %}
+		<div class="col-sm-2 col-xs-6">
+			<div class="card-container text-center">
+				<a href="{{url('media-center')}}/presentations" title="Presentations">
+					<span class="card_image_container" style="background: url({{'pensoft/presentations.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/presentations" title="Presentations"></span>
+					<span class="media_label">Presentations</span>
+				</a>
+			</div>
+		</div>
+		{% endif %}
+
 	</div>
 	<p>&nbsp;</p>
 </div>

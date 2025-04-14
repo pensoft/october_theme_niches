@@ -66,7 +66,7 @@ return Redirect::to('/media-center/flyer');
 		<div class="col-md-3 col-xs-12">
 			<div class="card-container text-center">
 				<span class="card_image_container" style="background: url({{record.flyer_image.thumb(243,243,{'mode':'crop'})}}) center center no-repeat;" title="{{record.name}}"></span>
-				<span class="card_title">{{record.name}}, {{record.file.size}}</span><br>
+				<span class="card_title">{{record.name}}</span><br>
 				<br><a href="{{ record.file.path }}#{{record.file.file_name}}" target="_blank" title="{{record.name}}" class="btn btn-primary">Download</a>
 			</div>
 		</div>
