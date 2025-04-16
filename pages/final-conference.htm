@@ -10,8 +10,8 @@ use Pensoft\Media\Models\Presentations;
 use Pensoft\Articles\Models\Article;
 
 function onStart(){
-	$this['video'] =  Videos::first();
-	$this['article'] =  Article::where('id', 56)->first();
+	$this['videos'] =  Videos::whereIn('id', [4,5])->get();
+	$this['article'] =  Article::where('id', 57)->first();
 	$this['presentations'] =  Presentations::get();
 }
 ?>
@@ -50,8 +50,15 @@ function onStart(){
 <div class="container-fluid bg-secondary">
 
     <div class="container final_video">
-        <h1 class="single-new-title">Watch final conference video</h1>
+        <h1 class="single-new-title">Watch final conference recordings</h1>
+        <div class="row">
+        {% for video in videos %}
+        <div class="col-md-6 col-xs-12">
         <p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="{{video.youtube_url}}" width="780" height="450"></iframe></p>
+        <p><b>{{video.name}}</b></p>
+        </div>
+        {% endfor %}
+        </div>
     </div>
 
 </div>
@@ -63,7 +70,7 @@ function onStart(){
 
 
         <div class="col-md-6 col-xs-12 mb-4">
-            <iframe src="https://docs.google.com/gview?url={{presentation.file.path}}&embedded=true" frameborder="0"></iframe>
+        <embed src="{{presentation.file.path}}" width="780" height="422" type="application/pdf">
             <p class="presentation_title">{{presentation.name}}</p>
         </div>
         {% endfor %}
