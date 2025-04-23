@@ -29,7 +29,7 @@ function onStart(){
 	<h1 class="page_heading ml-1">Media materials</h1>
 	<div class="row">
 		{% if logos.count() %}
-		<div class="col-sm-2 col-xs-6">
+		<div class="col-sm-3 col-xs-6 mb-4">
 			<div class="card-container text-center">
 				<a href="{{url('media-center')}}/logo" title="Logo">
 					<span class="card_image_container" style="background: url({{'pensoft/numbers-drop.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/logo" title="Logo"></span>
@@ -39,7 +39,7 @@ function onStart(){
 		</div>
 		{% endif %}
 		{% if flyers.count() %}
-		<div class="col-sm-2 col-xs-6">
+		<div class="col-sm-3 col-xs-6 mb-4">
 			<div class="card-container text-center">
 				<a href="{{url('media-center')}}/flyer" title="Promotional materials">
 					<span class="card_image_container" style="background: url({{'pensoft/promo-materials.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/flyer" title="Promotional materials"></span>
@@ -50,7 +50,7 @@ function onStart(){
 		{% endif %}
 
 		{% if pressreleases.count() %}
-		<div class="col-sm-2 col-xs-6">
+		<div class="col-sm-3 col-xs-6 mb-4">
 			<div class="card-container text-center">
 				<a href="{{url('media-center')}}/press-releases" title="Press releases">
 					<span class="card_image_container" style="background: url({{'pensoft/press-releases.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/press-releases" title="Press releases"></span>
@@ -62,7 +62,7 @@ function onStart(){
 
 
 		{% if newsletters.count() %}
-		<div class="col-sm-2 col-xs-6">
+		<div class="col-sm-3 col-xs-6 mb-4">
 			<div class="card-container text-center">
 				<a href="{{url('media-center')}}/newsletters" title="Newsletters">
 					<span class="card_image_container" style="background: url({{'pensoft/newsletters.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/newsletters" title="Newsletters"></span>
@@ -74,7 +74,7 @@ function onStart(){
 
 
 		{% if videos.count() %}
-		<div class="col-sm-2 col-xs-6">
+		<div class="col-sm-3 col-xs-6 mb-4">
 			<div class="card-container text-center">
 				<a href="{{url('media-center')}}/videos" title="Videos">
 					<span class="card_image_container" style="background: url({{'pensoft/videos.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/videos" title="Videos"></span>
@@ -86,7 +86,7 @@ function onStart(){
 
 
 		{% if presentations.count() %}
-		<div class="col-sm-2 col-xs-6">
+		<div class="col-sm-3 col-xs-6 mb-4">
 			<div class="card-container text-center">
 				<a href="{{url('media-center')}}/presentations" title="Presentations">
 					<span class="card_image_container" style="background: url({{'pensoft/presentations.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/presentations" title="Presentations"></span>
@@ -98,7 +98,7 @@ function onStart(){
 
 
 		{% if documents.count() %}
-		<div class="col-sm-2 col-xs-6">
+		<div class="col-sm-3 col-xs-6 mb-4">
 			<div class="card-container text-center">
 				<a href="{{url('media-center')}}/policy-briefs" title="Policy briefs">
 					<span class="card_image_container" style="background: url({{'pensoft/presentations.svg'|media}}) center center no-repeat;" href="{{url('media-center')}}/policy-briefs" title="Policy briefs"></span>
